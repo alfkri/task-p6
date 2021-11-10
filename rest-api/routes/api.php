@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-# import AnimalController
-use App\Http\Controllers\AnimalController;
+
 # import StudentCotroller
 use App\Http\Controllers\StudentController;
 
@@ -22,17 +21,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-# method get, endpoint animals 
-Route::get('/animals', [AnimalController::class, 'index']);
 
-# method post, endpoint animals
-Route::post('/animals', [AnimalController::class, 'store']);
-
-# method put, endpoint animals
-Route::put('/animals/{id}', [AnimalController::class, 'update']);
-
-# method delete, endpoint enimals
-Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
-
-# routing untuk Students
+# Get All Resource
 Route::get('/students', [StudentController::class, 'index']);
+
+# Add Resource
+Route::post('/students', [StudentController::class, 'store']);
+
+# Get Detail Resource
+Route::get('/students/{id}', [StudentController::class, 'show']);
+
+# Update Resource
+Route::put('/students/{id}', [StudentController::class, 'update']);
+
+# Delete Resource
+Route::delete('/students/{id}', [StudentController::class, 'destroy']);
